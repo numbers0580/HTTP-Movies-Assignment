@@ -10,6 +10,7 @@ const blankFields = {
 };
 
 const MovieForm = props => {
+    const {movieList, setMovieList, getMovieList} = props;
     const [formEntries, setFormEntries] = useState(blankFields);
 
     const history = useHistory();
@@ -29,22 +30,16 @@ const MovieForm = props => {
 
     const submitMovie = e => {
         e.preventDefault();
-        axios.put(`http://localhost:5000/api/movies/${id}`, formEntries)
+        axios.put(`http://localhost:5000/api/movies/${formEntries.id}`, formEntries)
             .then(response => {
                 console.log('Testing new Movie data:', response.data);
-                // const updatedList = [...movieList];
-                // updatedList.forEach(movie => {
-                //     if(movie.id === id) {
-                //         updatedList.splice(index, 1, response.data);
-                //         setMovieList(updatedList);
-                //     }
-                // });
-                props.setMovieList([...props.movieList, response.data]);
-                history.push('/');
+                getMovieList();
+                history.push('/'); //Goes back to list of movies
             })
             .catch(submitError => {
                 console.log('Error submitting new Movie');
             })
+        //setFormEntries(blankFields);
     };
 
     useEffect(() => {
