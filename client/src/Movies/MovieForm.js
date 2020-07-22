@@ -12,6 +12,7 @@ const blankFields = {
 const MovieForm = props => {
     const {movieList, setMovieList, getMovieList} = props;
     const [formEntries, setFormEntries] = useState(blankFields);
+    const [movieTitle, setTitle] = useState();
 
     const history = useHistory();
     const {id} = useParams();
@@ -39,7 +40,6 @@ const MovieForm = props => {
             .catch(submitError => {
                 console.log('Error submitting new Movie');
             })
-        //setFormEntries(blankFields);
     };
 
     useEffect(() => {
@@ -47,6 +47,7 @@ const MovieForm = props => {
             .then(fetched => {
                 console.log('Testing fetched Movies in MovieForm:', fetched.data);
                 setFormEntries(fetched.data);
+                setTitle(fetched.data.title);
             })
             .catch(fetchedError => {
                 console.log('Error fetching Movies for MovieForm');
@@ -55,7 +56,7 @@ const MovieForm = props => {
 
     return (
         <form style={{margin: '40px 20px'}} onSubmit={submitMovie}>
-            <h2>Update '{formEntries.title}' Form</h2>
+            <h2>Update '{movieTitle}' Form</h2>
             <div style={{width: '300px', margin: '10px 0', display: 'flex', justifyContent: 'space-between'}}>
                 <div><label>Movie Title:</label></div>
                 <div><input type='text' name='title' value={formEntries.title} onChange={updateEntries} /></div>
