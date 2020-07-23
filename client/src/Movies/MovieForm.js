@@ -54,31 +54,64 @@ const MovieForm = props => {
             })
     }, []);
 
+    const formStyle = () => {
+        return {
+            form: {
+                width: '500px',
+                padding: '30px 0',
+                margin: '40px 20px',
+                background: '#9CDCFE',
+                border: '5px solid #2A9CD7',
+                borderRadius: '50px',
+                display: 'flex',
+                justifyContent: 'center'
+            },
+            div: {
+                width: '300px',
+                margin: '10px 0',
+                display: 'flex',
+                justifyContent: 'space-between'
+            },
+            button: {
+                width: '90px',
+                height: '32px',
+                background: 'inherit',
+                border: '2px solid #000080',
+                borderRadius: '16px',
+                color: '#000080',
+                fontSize: '1.2rem',
+                fontWeight: 'bold'
+            }
+        };
+    };
+
     return (
-        <form style={{margin: '40px 20px'}} onSubmit={submitMovie}>
-            <h2>Update '{movieTitle}' Form</h2>
-            <div style={{width: '300px', margin: '10px 0', display: 'flex', justifyContent: 'space-between'}}>
-                <div><label>Movie Title:</label></div>
-                <div><input type='text' name='title' value={formEntries.title} onChange={updateEntries} /></div>
-            </div>
-            <div style={{width: '300px', margin: '10px 0', display: 'flex', justifyContent: 'space-between'}}>
-                <div><label>Director:</label></div>
-                <div><input type='text' name='director' value={formEntries.director} onChange={updateEntries} /></div>
-            </div>
-            <div style={{width: '300px', margin: '10px 0', display: 'flex', justifyContent: 'space-between'}}>
-                <div><label>Metascore:</label></div>
-                <div><input type='number' name='metascore' value={formEntries.metascore} onChange={updateEntries} /></div>
-            </div>
-            {formEntries.stars.map(billing => {
-                return (
-                    <div style={{width: '300px', margin: '10px 0', display: 'flex', justifyContent: 'space-between'}}>
-                        <div><label>Actor:</label></div>
-                        <div><input type='text' name='stars' value={billing} onChange={updateActors} /></div>
-                    </div>
-                )
-            })}
+        <form style={formStyle().form} onSubmit={submitMovie}>
             <div>
-                <button>Submit</button>
+                <h2>Update '{movieTitle}' Form</h2>
+                <div style={formStyle().div}>
+                    <div><label>Movie Title:</label></div>
+                    <div><input type='text' name='title' value={formEntries.title} onChange={updateEntries} /></div>
+                </div>
+                <div style={formStyle().div}>
+                    <div><label>Director:</label></div>
+                    <div><input type='text' name='director' value={formEntries.director} onChange={updateEntries} /></div>
+                </div>
+                <div style={formStyle().div}>
+                    <div><label>Metascore:</label></div>
+                    <div><input type='number' name='metascore' value={formEntries.metascore} onChange={updateEntries} /></div>
+                </div>
+                {formEntries.stars.map(billing => {
+                    return (
+                        <div style={formStyle().div}>
+                            <div><label>Actor:</label></div>
+                            <div><input type='text' name='stars' value={billing} onChange={updateActors} /></div>
+                        </div>
+                    )
+                })}
+                <div>
+                    <button style={formStyle().button}>Submit</button>
+                </div>
             </div>
         </form>
     );
