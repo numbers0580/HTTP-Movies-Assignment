@@ -43,7 +43,7 @@ const App = () => {
       </Route>
 
       <Route path="/add-movie">
-        <AddMovieForm />
+        <AddMovieForm getMovieList={getMovieList} />
       </Route>
     </>
   );
