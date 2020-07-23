@@ -59,12 +59,13 @@ const MovieForm = props => {
             form: {
                 width: '500px',
                 padding: '30px 0',
-                margin: '40px 20px',
+                margin: '50px 250px',
                 background: '#9CDCFE',
                 border: '5px solid #2A9CD7',
                 borderRadius: '50px',
                 display: 'flex',
-                justifyContent: 'center'
+                flexDirection: 'column',
+                alignItems: 'center'
             },
             div: {
                 width: '300px',
@@ -87,8 +88,10 @@ const MovieForm = props => {
 
     return (
         <form style={formStyle().form} onSubmit={submitMovie}>
-            <div>
+            <div style={{maxWidth: '400px'}}>
                 <h2>Update '{movieTitle}' Form</h2>
+            </div>
+            <div style={{width: '400px'}}>
                 <div style={formStyle().div}>
                     <div><label>Movie Title:</label></div>
                     <div><input type='text' name='title' value={formEntries.title} onChange={updateEntries} /></div>

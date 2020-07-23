@@ -56,7 +56,7 @@ const AddMovieForm = props => {
             form: {
                 width: '500px',
                 padding: '30px 0',
-                margin: '20px 40px',
+                margin: '50px 250px',
                 background: '#E7E892',
                 border: '5px solid #ABAC2F',
                 borderRadius: '50px',
