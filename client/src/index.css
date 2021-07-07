@@ -2,18 +2,21 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #f2f2f2;
+  background-color: #4D4E4F;
 }
 
 .movie-card {
-  background-color: #fff;
+  background-color: gold;
   border: 0;
-  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+  box-shadow: 0 -1px 0 #ffa500, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
   padding: 1rem;
   cursor: pointer;
   position: relative;
   margin: 1rem auto;
+}
+.movie-card:hover {
+  background-color: yellow;
 }
 
 .movie-director {
@@ -22,7 +25,7 @@ body {
 }
 
 .saved-list {
-  background-color: #fff;
+  background-color: #3499CF;
   border: 0;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
@@ -65,10 +68,38 @@ body {
   background-color: green;
   color: white;
 }
+.edit-button {
+  position: absolute;
+  top: 110px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+}
+.edit-button:hover {
+  background-color: green;
+  color: white;
+}
+.delete-button {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+}
+.delete-button:hover {
+  background-color: green;
+  color: white;
+}
 
 .home-button {
   padding: 5px 10px;
-  background-color: lightskyblue;
+  background-color: rgb(100, 192, 177);
+  border: 2px solid rgb(41, 133, 128);
+}
+.home-button:hover {
+  background-color: rgb(69, 218, 210);
 }
 
 .movie-warning {

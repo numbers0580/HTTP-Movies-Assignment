@@ -16,8 +16,13 @@ function SavedList({ list }) {
           </NavLink>
         );
       })}
-      <div className="home-button">
-        <Link to="/">Home</Link>
+      <div style={{width: '200px', display: 'flex', justifyContent: 'space-between'}}>
+        <div className="home-button">
+          <Link to="/">Home</Link>
+        </div>
+        <div className="home-button">
+          <Link to="/add-movie">Add Movie</Link>
+        </div>
       </div>
     </div>
   );
